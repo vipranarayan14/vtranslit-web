@@ -40,48 +40,6 @@ body * {
     font-size: 16px;
 }
 
-body {
-    background: #B993D6;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #8CA6DB, #B993D6);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #8CA6DB, #B993D6);
-}
-
-h1 {
-    text-align: center;
-    font-size: 28px;
-    color: #ececec;
-}
-
-hr {
-    border: 3px dotted #ececec;
-    width: 95%;
-}
-
-main {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.container {
-    padding: 10px 10px;
-    width: 100%;
-}
-
-.input-box-container,
-.output-box-container {
-    margin: 5px auto;
-}
-
-.toolbar,
-.translit-box {
-    display: block;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    outline: none;
-}
-
 .toolbar {
     border-width: 1px 1px 0px;
     border-radius: 5px 5px 0 0;
@@ -118,12 +76,9 @@ main {
 }
 
 .translit-box {
-    width: 100%;
-    height: 150px;
     border-radius: 0 0 5px 5px;
     border-width: 0px 1px 1px;
     padding: 5px 10px;
-    resize: none;
     font-size: 18px;
     box-shadow: inset 0 0 10px #ccc;
 }
