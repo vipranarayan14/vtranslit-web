@@ -103,13 +103,17 @@ const handleFromSchemeSelect = () => {
 
 };
 
-const handleToSchemeSelect = () => {
+const handleToSchemeSelect = e => {
 
   vt = vTranslit.init(fromSchemeSelect.value, toSchemeSelect.value);
 
-  alertSchemeChange('to-scheme', toSchemeSelect);
+  if (e) {
 
-  transliterate();
+    alertSchemeChange('to-scheme', toSchemeSelect);
+
+    transliterate();
+
+  }
 
 };
 
