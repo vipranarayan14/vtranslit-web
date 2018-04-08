@@ -2,7 +2,7 @@
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require('path');
 
@@ -32,7 +32,7 @@ const config = {
       {
         test: /\.(css|less)$/,
         loader: ExtractTextPlugin.extract([
-          'css-loader?sourceMap',
+          'css-loader?sourceMap&minimize',
           'less-loader?sourceMap'
         ])
       },
