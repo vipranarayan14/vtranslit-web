@@ -1,7 +1,9 @@
 /* eslint-disable sort-keys */
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const path = require('path');
 
 const entry = './prod/app.js';
@@ -49,7 +51,12 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
-    new Webpack.optimize.UglifyJsPlugin()
+    new Webpack.optimize.UglifyJsPlugin(),
+    new CopyWebpackPlugin([{
+      from: 'prod/assets/icons/**/*',
+      flatten: true,
+      to: 'assets/icons/'
+    }])
   ]
 };
 
