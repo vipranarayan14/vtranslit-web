@@ -157,7 +157,7 @@ main {
     z-index: 1;
     left: 50%;
     transform: translate(-50%, 0);
-    top: 30px;
+    top: 70px;
 }
 
 #snackbar.show {
@@ -174,7 +174,7 @@ main {
         opacity: 0;
     }
     to {
-        top: 30px;
+        top: 70px;
         opacity: 1;
     }
 }
@@ -185,14 +185,14 @@ main {
         opacity: 0;
     }
     to {
-        top: 30px;
+        top: 70px;
         opacity: 1;
     }
 }
 
 @-webkit-keyframes fadeout {
     from {
-        top: 30px;
+        top: 70px;
         opacity: 1;
     }
     to {
@@ -203,7 +203,7 @@ main {
 
 @keyframes fadeout {
     from {
-        top: 30px;
+        top: 70px;
         opacity: 1;
     }
     to {
