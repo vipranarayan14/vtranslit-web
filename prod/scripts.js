@@ -13,6 +13,15 @@ let vt = () => {};
 
 availableSchemes.forEach(scheme => {
 
+  if (scheme.code === 'Itrn') {
+
+    fromSchemeSelect.options[fromSchemeSelect.options.length] =
+      new Option(scheme.name, scheme.code, true, true);
+
+    return;
+
+  }
+
   fromSchemeSelect.options[fromSchemeSelect.options.length] = new Option(scheme.name, scheme.code);
 
 });
