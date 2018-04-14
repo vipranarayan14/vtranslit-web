@@ -45,6 +45,6 @@
     "Indic scripts"
   ],
   "dependencies": {
-    "vtranslit": "^3.2.0"
+    "vtranslit": "^3.3.1"
   }
 }
