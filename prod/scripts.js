@@ -110,6 +110,8 @@ const handleFromSchemeSelect = () => {
 
   alertSchemeChange('from-scheme', fromSchemeSelect);
 
+  transliterate();
+
 };
 
 const handleToSchemeSelect = e => {
