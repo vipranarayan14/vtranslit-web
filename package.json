@@ -2,6 +2,23 @@
   "name": "vtranslit-web",
   "version": "0.1.2",
   "description": "A web app for vtranslit.",
+  "author": "Prasanna Venkatesh T S <vipranarayan14@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "webapp",
+    "vtranslit",
+    "ITRANS",
+    "Indic scripts"
+  ],
+  "homepage": "https://github.com/vipranarayan14/vtranslit-web#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vipranarayan14/vtranslit-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vipranarayan14/vtranslit-web/issues"
+  }, 
+  "main": "prod/app.js",
   "scripts": {
     "build": "rimraf dist && webpack",
     "start": "webpack-dev-server --config webpack.config.server",
@@ -11,8 +28,9 @@
     "version": "git add -A dist",
     "postversion": "git push && git push --tags"
   },
-  "author": "Prasanna Venkatesh T S <vipranarayan14@gmail.com>",
-  "license": "MIT",
+  "dependencies": {
+    "vtranslit": "^3.4.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -31,23 +49,5 @@
     "url-loader": "^1.0.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "2.9.7"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vipranarayan14/vtranslit-web.git"
-  },
-  "bugs": {
-    "url": "https://github.com/vipranarayan14/vtranslit-web/issues"
-  },
-  "homepage": "https://github.com/vipranarayan14/vtranslit-web#readme",
-  "main": "prod/app.js",
-  "keywords": [
-    "webapp",
-    "vtranslit",
-    "ITRANS",
-    "Indic scripts"
-  ],
-  "dependencies": {
-    "vtranslit": "^3.4.0"
   }
 }
