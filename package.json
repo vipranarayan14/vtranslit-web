@@ -17,7 +17,7 @@
   },
   "bugs": {
     "url": "https://github.com/vipranarayan14/vtranslit-web/issues"
-  }, 
+  },
   "main": "prod/app.js",
   "scripts": {
     "build": "rimraf dist && webpack",
@@ -29,7 +29,7 @@
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "vtranslit": "^3.4.0"
+    "vtranslit": "^3.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
