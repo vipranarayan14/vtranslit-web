@@ -3,6 +3,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
 
@@ -56,7 +57,17 @@ const config = {
       from: 'prod/assets/icons/**/*',
       flatten: true,
       to: 'assets/icons/'
-    }])
+    }]),
+    new HtmlWebpackPlugin({
+      template: 'prod/index.html',
+      filename: './../index.html',
+      minify: {
+        collapseWhitespace: true,
+        conservativeCollapse: true,
+        minifyCSS: true,
+        minifyJS: true
+      }
+    })
   ]
 };
 
