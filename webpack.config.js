@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const entry = './prod/app.js';
-const filename = 'scripts.js';
+const filename = 'scripts.[chunkhash].js';
 
 const config = {
   entry,
@@ -51,7 +51,7 @@ const config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin('styles.[contenthash].css'),
     new UglifyJsPlugin(),
     new CopyWebpackPlugin([{
       from: 'prod/assets/icons/**/*',
