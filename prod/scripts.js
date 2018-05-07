@@ -9,6 +9,7 @@ const inputBox = document.querySelector('#inputBox');
 const outputBox = document.querySelector('#outputBox');
 const fromSchemeSelect = document.querySelector('#fromScheme');
 const toSchemeSelect = document.querySelector('#toScheme');
+const toggleModeSelect = document.querySelector('#toggleMode');
 const copyButtons = document.querySelectorAll('.copy-button');
 const snackbar = document.querySelector('#snackbar');
 
@@ -109,11 +110,27 @@ const alertSchemeChange = (type, schemeSelect) => {
 
 };
 
+const transliterate = () => outputBox.value = vt(inputBox.value);
+
 const init = () => {
 
   makeToSchemeOptions();
 
   handleToSchemeSelect();
+
+};
+
+const handleToggleModeSelect = () => {
+
+  handleToSchemeSelect();
+
+  const toggleModeSelected = toggleModeSelect.options[toggleModeSelect.selectedIndex];
+
+  showSnackbar(
+    `The scheme toggling mode is set to  '${toggleModeSelected.text}'.`
+  );
+
+  transliterate();
 
 };
 
@@ -129,7 +146,13 @@ const handleFromSchemeSelect = () => {
 
 const handleToSchemeSelect = e => {
 
-  vt = vtranslit.init(fromSchemeSelect.value, toSchemeSelect.value);
+  const options = {
+
+    toggleMode: parseInt(toggleModeSelect.value)
+
+  };
+
+  vt = vtranslit.init(fromSchemeSelect.value, toSchemeSelect.value, options);
 
   if (e) {
 
@@ -141,10 +164,9 @@ const handleToSchemeSelect = e => {
 
 };
 
-const transliterate = () => outputBox.value = vt(inputBox.value);
-
 fromSchemeSelect.addEventListener('change', handleFromSchemeSelect);
 toSchemeSelect.addEventListener('change', handleToSchemeSelect);
+toggleModeSelect.addEventListener('change', handleToggleModeSelect);
 
 copyButtons.forEach(button => button.addEventListener('click', e => {
 

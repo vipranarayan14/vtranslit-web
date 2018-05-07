@@ -95,9 +95,6 @@
 
   </style>
 
-  <!-- <link href="dist/styles.css" rel="stylesheet"> -->
-
-
 </head>
 
 <body>
@@ -114,9 +111,17 @@
       <div class="input-box-container">
 
         <div class="toolbar">
+
           <select id="fromScheme" class="scheme-selector tool" title="Select from-scheme"></select>
 
+          <select id="toggleMode" class="toggle-mode-selector tool" title="Select toggle mode">
+            <option value="0">Toggle Mode: Off</option>
+            <option value="1">Outside the marker</option>
+            <option value="2">Inside the marker</option>
+          </select>
+
           <button class="tool copy-button icons copy" title="Click to copy" data-clip-target="#inputBox">Copy</button>
+
         </div>
 
         <textarea id="inputBox" class="translit-box" title="Input to transliterate" autofocus></textarea>
@@ -154,8 +159,6 @@
     }
 
   </script>
-
-  <!-- <script src="dist/scripts.js"></script> -->
 
 </body>
 
