@@ -1,4 +1,9 @@
 import { vTranslit } from 'vtranslit';
+import { vTranslitSchemeDeva } from 'vtranslit-scheme-deva';
+import { vTranslitSchemeItrn } from 'vtranslit-scheme-itrn';
+import { vTranslitSchemeKnda } from 'vtranslit-scheme-knda';
+import { vTranslitSchemeTaml } from 'vtranslit-scheme-taml';
+import { vTranslitSchemeTelu } from 'vtranslit-scheme-telu';
 
 const inputBox = document.querySelector('#inputBox');
 const outputBox = document.querySelector('#outputBox');
@@ -7,7 +12,15 @@ const toSchemeSelect = document.querySelector('#toScheme');
 const copyButtons = document.querySelectorAll('.copy-button');
 const snackbar = document.querySelector('#snackbar');
 
-const availableSchemes = vTranslit.getAvailableSchemes();
+const vtranslit = vTranslit([
+  vTranslitSchemeDeva,
+  vTranslitSchemeItrn,
+  vTranslitSchemeKnda,
+  vTranslitSchemeTaml,
+  vTranslitSchemeTelu
+]);
+
+const availableSchemes = vtranslit.list();
 
 let vt = () => {};
 
@@ -116,7 +129,7 @@ const handleFromSchemeSelect = () => {
 
 const handleToSchemeSelect = e => {
 
-  vt = vTranslit.init(fromSchemeSelect.value, toSchemeSelect.value);
+  vt = vtranslit.init(fromSchemeSelect.value, toSchemeSelect.value);
 
   if (e) {
 
