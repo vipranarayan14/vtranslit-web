@@ -104,9 +104,9 @@ const showSnackbar = msg => {
 
 const alertSchemeChange = (type, schemeSelect) => {
 
-  const selectedOptionText = schemeSelect.options[schemeSelect.selectedIndex].text;
+  const selectedOption = schemeSelect.options[schemeSelect.selectedIndex];
 
-  showSnackbar(`The ${type} is changed to '${selectedOptionText}'.`);
+  showSnackbar(`The ${type} is changed to '${selectedOption.text}'.`);
 
 };
 
