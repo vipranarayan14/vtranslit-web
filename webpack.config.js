@@ -17,7 +17,7 @@ const config = {
     path: path.resolve(`${__dirname}/dist`)
   },
   module: {
-    loaders: [
+    rules: [
 
       {
         exclude: /node_modules/,
@@ -51,7 +51,7 @@ const config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('styles.[contenthash:4].css'),
+    new ExtractTextPlugin('styles.[chunkhash:4].css'),
     new UglifyJsPlugin(),
     new CopyWebpackPlugin([{
       from: 'prod/assets/icons/**/*',
