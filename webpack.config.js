@@ -10,7 +10,7 @@ const path = require('path');
 const entry = './prod/app.js';
 const filename = 'scripts.js';
 
-const config = {
+const config = env => ({
   entry,
   output: {
     filename,
@@ -60,16 +60,16 @@ const config = {
     }]),
     new HtmlWebpackPlugin({
       template: 'prod/index.html',
-      filename: './../index.html',
+      filename: (env.target === 'inliner') ? './../inliner.html' : './../index.html',
       minify: {
         collapseWhitespace: true,
         conservativeCollapse: true,
         minifyCSS: true,
         minifyJS: true
       },
-      hash: true
+      hash: (env.target === 'inliner') ? false : true
     }),
   ]
-};
+});
 
 module.exports = config;

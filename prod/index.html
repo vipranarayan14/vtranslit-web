@@ -53,10 +53,14 @@
       background: linear-gradient(to left, #8CA6DB, #B993D6);
     }
 
-    h1 {
+    h1,
+    footer {
       text-align: center;
-      font-size: 28px;
       color: #ececec;
+    }
+
+    h1 {
+      font-size: 28px;
     }
 
     hr {
@@ -67,6 +71,12 @@
     main {
       max-width: 600px;
       margin: 0 auto;
+    }
+
+    footer,
+    footer a {
+      font-weight: 700;
+      text-decoration: none;
     }
 
     .container {
@@ -103,8 +113,10 @@
 
   <main>
 
-    <h1>vTranslit</h1>
-    <hr>
+    <header>
+      <h1>vTranslit</h1>
+      <hr>
+    </header>
 
     <div class="container">
 
@@ -139,6 +151,15 @@
       </div>
 
     </div>
+
+    <footer>
+      <div>
+        You can
+        <a href="dist/vtranslit.html" download="vtranslit">download</a>
+        this webapp for offline use.
+      </div>
+    </footer>
+
   </main>
 
   <script>
