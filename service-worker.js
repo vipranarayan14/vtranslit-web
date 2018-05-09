@@ -9,8 +9,11 @@ self.addEventListener('install', function (e) {
         './index.html',
         './index.html?homescreen=1',
         './?homescreen=1',
-        'dist/styles.846a.css',
-        'dist/scripts.846a.js',
+        'dist/assets/icons/favicon.ico',
+        '/dist/assets/icons/favicon-16x16.png',
+        'dist/assets/icons/favicon-32x32.png',
+        'dist/styles.css',
+        'dist/scripts.js',
         'dist/assets/images/copy-32.png',
         'dist/assets/fonts/SakalBharati.ttf',
       ]);
