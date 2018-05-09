@@ -60,6 +60,9 @@ const makeToSchemeOptions = () => {
 
     });
 
+    toSchemeSelect.options[toSchemeSelect.options.length] =
+      new Option('Multiple', 'Multi');
+
   } else {
 
     toSchemeSelect.options.length = 0;
