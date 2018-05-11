@@ -1,2 +1,2 @@
-require('./scripts');
-require('./styles.css');
+import './scripts';
+import './styles.css';
