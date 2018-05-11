@@ -20,14 +20,15 @@
   },
   "main": "prod/app.js",
   "scripts": {
-    "build": "rimraf dist && webpack --env.target=dist && npm run inliner",
-    "start": "webpack-dev-server --config webpack.config.server --env.target=dist",
+    "build": "rimraf dist && webpack --env.target=dist",
+    "build:final": "rimraf dist && webpack --env.target=dist && npm run inliner",
     "eslint": "eslint ./**/*.js",
     "inliner": ". ./inliner.sh",
+    "postversion": "git push && git push --tags",
     "precommit": "npm run eslint",
-    "preversion": "npm run build",
-    "version": "git add -A dist",
-    "postversion": "git push && git push --tags"
+    "preversion": "npm run build:final",
+    "start": "webpack-dev-server --config webpack.config.server --env.target=dist",
+    "version": "git add -A dist"
   },
   "dependencies": {
     "vtranslit": "^4.2.0",
