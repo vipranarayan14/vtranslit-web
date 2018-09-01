@@ -20,12 +20,12 @@
   },
   "main": "prod/app.js",
   "scripts": {
-    "build": "rimraf dist && webpack --env.target=dist",
+    "build": "rimraf dist && webpack",
     "eslint": "eslint ./**/*.js",
-    "start": "webpack-dev-server --config webpack.config.server --env.target=dist",
+    "start": "webpack-dev-server --config webpack.config.server",
     "postversion": "git push && git push --tags",
     "precommit": "npm run eslint",
-    "preversion": "npm run build:final",
+    "preversion": "npm run build",
     "version": "git add -A dist"
   },
   "dependencies": {
