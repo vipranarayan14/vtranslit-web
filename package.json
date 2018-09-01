@@ -26,7 +26,7 @@
     "postversion": "git push && git push --tags",
     "precommit": "npm run eslint",
     "preversion": "npm run build",
-    "version": "git add -A build"
+    "version": "git add -A"
   },
   "dependencies": {
     "vtranslit": "^4.4.0",
