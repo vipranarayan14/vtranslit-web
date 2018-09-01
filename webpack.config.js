@@ -10,11 +10,11 @@ const path = require('path');
 const entry = './prod/app.js';
 const filename = 'scripts.[chunkhash:4].js';
 
-const config = env => ({
+const config = () => ({
   entry,
   output: {
     filename,
-    path: path.resolve(`${__dirname}/dist`)
+    path: path.resolve(`${__dirname}/build`)
   },
   module: {
     rules: [
@@ -58,16 +58,21 @@ const config = env => ({
       flatten: true,
       to: 'assets/icons/'
     }]),
+    new CopyWebpackPlugin([{
+      from: 'public/',
+      flatten: true,
+      to: './'
+    }]),
     new HtmlWebpackPlugin({
       template: 'prod/index.html',
-      filename: (env.target === 'inliner') ? './../inliner.html' : './../index.html',
+      filename: 'index.html',
       minify: {
         collapseWhitespace: true,
         conservativeCollapse: true,
         minifyCSS: true,
         minifyJS: true
       },
-      hash: (env.target === 'inliner') ? false : true
+      hash: true
     }),
   ]
 });
