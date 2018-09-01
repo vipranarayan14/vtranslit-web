@@ -21,18 +21,17 @@
   "main": "prod/app.js",
   "scripts": {
     "build": "rimraf dist && webpack --env.target=dist",
-    "build:final": "rimraf dist && webpack --env.target=dist && npm run inliner",
     "eslint": "eslint ./**/*.js",
-    "inliner": ". ./inliner.sh",
+    "start": "webpack-dev-server --config webpack.config.server --env.target=dist",
     "postversion": "git push && git push --tags",
     "precommit": "npm run eslint",
     "preversion": "npm run build:final",
-    "start": "webpack-dev-server --config webpack.config.server --env.target=dist",
     "version": "git add -A dist"
   },
   "dependencies": {
-    "vtranslit": "^4.2.0",
+    "vtranslit": "^4.4.0",
     "vtranslit-scheme-deva": "^0.4.0",
+    "vtranslit-scheme-gran": "^0.1.1",
     "vtranslit-scheme-itrn": "^0.3.0",
     "vtranslit-scheme-knda": "^0.3.0",
     "vtranslit-scheme-taml": "^0.3.0",
@@ -40,10 +39,10 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "copy-webpack-plugin": "^4.5.1",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.11",
     "eslint": "^4.15.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -51,13 +50,13 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
     "inliner": "^1.13.1",
-    "less": "^3.0.4",
+    "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "rimraf": "^2.6.2",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.8.1",
-    "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^2.1.5",
+    "webpack-dev-server": "^3.1.7"
   }
 }
