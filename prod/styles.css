@@ -1,148 +1,157 @@
 @font-face {
-    font-family: 'SakalBharati';
-    src: url('assets/fonts/SakalBharati.ttf');
+  font-family: 'SakalBharati';
+  src: url('assets/fonts/SakalBharati.ttf');
+}
+
+@font-face {
+  font-family: 'Sampradaya';
+  src: url('assets/fonts/Sampradaya.ttf');
 }
 
 button {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
 }
 
 button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 .toolbar {
-    border-width: 1px 1px 0px;
-    border-radius: 5px 5px 0 0;
-    height: 40px;
-    padding: 0 10px 0;
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 12px;
+  border-width: 1px 1px 0px;
+  border-radius: 5px 5px 0 0;
+  height: 40px;
+  padding: 0 10px 0;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 12px;
 }
 
 .toolbar .tool {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: none;
-    font-weight: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    padding: 0 10px;
-    background-color: #dadada;
-    color: #636366;
-    border-left: 2px solid #636363;
-    border-right: 2px solid #636363;
-    height: 100%;
-    outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0 10px;
+  background-color: #dadada;
+  color: #636366;
+  border-left: 2px solid #636363;
+  border-right: 2px solid #636363;
+  height: 100%;
+  outline: none;
 }
 
 .scheme-selector {
-    min-width: 100px;
+  min-width: 100px;
 }
 
 .copy-button {
-    float: right;
-    clear: both;
+  float: right;
+  clear: both;
 }
 
 .translit-box {
-    font-family: 'SakalBharati', serif;
-    border-radius: 0 0 5px 5px;
-    border-width: 0px 1px 1px;
-    padding: 5px 10px;
-    font-size: 18px;
-    box-shadow: inset 0 0 10px #ccc;
+  font-family: 'SakalBharati', 'Sampradaya', serif;
+  border-radius: 0 0 5px 5px;
+  border-width: 0px 1px 1px;
+  padding: 5px 10px;
+  font-size: 18px;
+  box-shadow: inset 0 0 10px #ccc;
 }
 
 .icons {
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 40px;
-    overflow: hidden;
-    text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 40px;
+  overflow: hidden;
+  text-indent: -9999px;
 }
 
 .icons.copy {
-    background-image: url('assets/images/copy-32.png');
+  background-image: url('assets/images/copy-32.png');
 }
 
 #snackbar {
-    visibility: hidden;
-    min-width: 250px;
-    max-width: 60%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    transform: translate(-50%, 0);
-    top: 70px;
+  visibility: hidden;
+  min-width: 250px;
+  max-width: 60%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 70px;
 }
 
 #snackbar.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 /* Animations to fade the snackbar in and out */
 
 @-webkit-keyframes fadein {
-    from {
-        top: 0;
-        opacity: 0;
-    }
-    to {
-        top: 70px;
-        opacity: 1;
-    }
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 70px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-    from {
-        top: 0;
-        opacity: 0;
-    }
-    to {
-        top: 70px;
-        opacity: 1;
-    }
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 70px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-    from {
-        top: 70px;
-        opacity: 1;
-    }
-    to {
-        top: 0;
-        opacity: 0;
-    }
+  from {
+    top: 70px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-    from {
-        top: 70px;
-        opacity: 1;
-    }
-    to {
-        top: 0;
-        opacity: 0;
-    }
+  from {
+    top: 70px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }
