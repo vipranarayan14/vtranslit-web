@@ -6,13 +6,13 @@ self.addEventListener('install', function (e) {
 
       return cache.addAll([
         './',
-        './index.html',
-        './index.html?homescreen=1',
+        'index.html',
+        'index.html?homescreen=1',
         './?homescreen=1',
-        'dist/styles.64b2.css',
-        'dist/scripts.64b2.js',
-        'dist/assets/images/copy-32.png',
-        'dist/assets/fonts/SakalBharati.ttf',
+        'styles.64b2.css',
+        'scripts.64b2.js',
+        'assets/images/copy-32.png',
+        'assets/fonts/SakalBharati.ttf',
       ]);
 
     })
