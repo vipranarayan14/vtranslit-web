@@ -33,7 +33,7 @@ const config = () => ({
       {
         test: /\.(css|less)$/,
         loader: ExtractTextPlugin.extract([
-          'css-loader?sourceMap&minimize',
+          'css-loader?sourceMap',
           'less-loader?sourceMap'
         ])
       },
