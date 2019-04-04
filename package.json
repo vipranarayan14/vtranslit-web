@@ -20,7 +20,7 @@
   },
   "main": "prod/app.js",
   "scripts": {
-    "build": "rimraf build && webpack",
+    "build": "rimraf build && webpack --mode=production",
     "eslint": "eslint ./**/*.js",
     "start": "webpack-dev-server --config webpack.config.server",
     "postversion": "git push && git push --tags",
