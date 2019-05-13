@@ -5,13 +5,14 @@ import { vtranslit } from './../libs/vtranslit';
 
 import { Box } from './Box';
 
-export const OutputBox = ({ value, fromScheme, toScheme }) => {
-  const vt = vtranslit.init(fromScheme, toScheme);
+export const OutputBox = ({ value, fromScheme, toScheme, translitMode }) => {
+  const vt = vtranslit.init(fromScheme, toScheme, { translitMode });
   return <Box value={vt(value)} readOnly />;
 };
 
 OutputBox.propTypes = {
   value: PropTypes.string.isRequired,
   fromScheme: PropTypes.string.isRequired,
-  toScheme: PropTypes.string.isRequired
+  toScheme: PropTypes.string.isRequired,
+  translitMode: PropTypes.number.isRequired
 };
