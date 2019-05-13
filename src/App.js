@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import { InputBox } from './components/InputBox';
 import { OutputBox } from './components/OutputBox';
+import { InputToolBar } from './components/InputToolBar';
 import { ToolBar } from './components/ToolBar';
+import { Wrapper } from './components/Wrapper';
 
 import './App.css';
 
@@ -13,12 +15,14 @@ class App extends Component {
     this.state = {
       input: '',
       fromScheme: 'Itrn',
-      toScheme: 'Deva'
+      toScheme: 'Deva',
+      translitMode: 0
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFromSchemeSelect = this.handleFromSchemeSelect.bind(this);
-    this.handleToSchemeSelect = this.handleToSchemeSelect.bind(this);
+    this.handleFromSchemeChange = this.handleFromSchemeChange.bind(this);
+    this.handleToSchemeChange = this.handleToSchemeChange.bind(this);
+    this.handleTranslitModeChange = this.handleTranslitModeChange.bind(this);
   }
 
   handleInputChange(e) {
@@ -27,15 +31,21 @@ class App extends Component {
     });
   }
 
-  handleFromSchemeSelect(e) {
+  handleFromSchemeChange(e) {
     this.setState({
       fromScheme: e.target.value
     });
   }
 
-  handleToSchemeSelect(e) {
+  handleToSchemeChange(e) {
     this.setState({
       toScheme: e.target.value
+    });
+  }
+
+  handleTranslitModeChange(e) {
+    this.setState({
+      translitMode: e.target.value
     });
   }
 
@@ -47,20 +57,27 @@ class App extends Component {
         </header>
 
         <main>
-          <ToolBar
-            handleSchemeSelect={this.handleFromSchemeSelect}
-            defaultSelectValue={this.state.fromScheme}
-          />
-          <InputBox handleInputChange={this.handleInputChange} />
-          <ToolBar
-            handleSchemeSelect={this.handleToSchemeSelect}
-            defaultSelectValue={this.state.toScheme}
-          />
-          <OutputBox
-            value={this.state.input}
-            fromScheme={this.state.fromScheme}
-            toScheme={this.state.toScheme}
-          />
+          <Wrapper>
+            <InputToolBar
+              handleSchemeChange={this.handleFromSchemeChange}
+              defaultScheme={this.state.fromScheme}
+              defaultTranslitMode={this.state.translitMode}
+              handleTranslitModeChange={this.handleTranslitModeChange}
+            />
+            <InputBox handleInputChange={this.handleInputChange} />
+          </Wrapper>
+          <Wrapper>
+            <ToolBar
+              handleSchemeChange={this.handleToSchemeChange}
+              defaultScheme={this.state.toScheme}
+            />
+            <OutputBox
+              value={this.state.input}
+              fromScheme={this.state.fromScheme}
+              toScheme={this.state.toScheme}
+              translitMode={this.state.translitMode}
+            />
+          </Wrapper>
         </main>
       </div>
     );
