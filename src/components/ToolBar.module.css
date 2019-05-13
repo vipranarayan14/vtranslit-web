@@ -1,0 +1,31 @@
+.ToolBar {
+  border-width: 1px 1px 0px;
+  border-radius: 5px 5px 0 0;
+  height: 40px;
+  padding: 0 10px 0;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 12px;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  outline: 0;
+  width: 100%;
+}
+
+.ToolBar .Tool {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0 10px;
+  background-color: #dadada;
+  color: #636366;
+  border-left: 2px solid #636363;
+  border-right: 2px solid #636363;
+  height: 100%;
+  outline: none;
+  margin: 0 2px;
+}
