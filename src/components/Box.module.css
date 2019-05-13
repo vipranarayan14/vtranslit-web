@@ -1,0 +1,16 @@
+.Box {
+  font-family: 'SakalBharati', 'Sampradaya', serif;
+  border-radius: 0 0 5px 5px;
+  border-width: 0px 1px 1px;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  box-shadow: inset 0 0 10px #ccc;
+  resize: vertical;
+  width: 100%;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  outline: 0;
+  width: 100%;
+  height: 150px;
+}

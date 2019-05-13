@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Box } from './Box';
+
 export const InputBox = ({ handleInputChange }) => (
-  <textarea onChange={handleInputChange} />
+  <Box onChange={handleInputChange} />
 );
 
 InputBox.propTypes = {

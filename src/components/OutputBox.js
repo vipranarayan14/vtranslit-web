@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 import { vtranslit } from './../libs/vtranslit';
 
+import { Box } from './Box';
+
 export const OutputBox = ({ value, fromScheme, toScheme }) => {
   const vt = vtranslit.init(fromScheme, toScheme);
-  return <textarea value={vt(value)} readOnly />;
+  return <Box value={vt(value)} readOnly />;
 };
 
 OutputBox.propTypes = {
