@@ -25,7 +25,19 @@
   color: #636366;
   border-left: 2px solid #636363;
   border-right: 2px solid #636363;
+  border-radius: 5px;
   height: 100%;
   outline: none;
   margin: 0 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+.ToolBar .Tool:hover {
+  background-color: #e4e4e4;
+}
+
+.ToolBar .Tool:active {
+  background-color: #f4f4f4;
+  border-width: 1.5px;
+}
 }
