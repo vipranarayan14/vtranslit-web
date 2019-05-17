@@ -10,6 +10,8 @@ import './App.css';
 
 import { vtranslit } from './libs/vtranslit';
 
+import { copyToClipboard } from './libs/copy-to-clipboard';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,8 @@ class App extends Component {
     this.handleFromSchemeChange = this.handleFromSchemeChange.bind(this);
     this.handleToSchemeChange = this.handleToSchemeChange.bind(this);
     this.handleTranslitModeChange = this.handleTranslitModeChange.bind(this);
+    this.handleInputCopyClick = this.handleInputCopyClick.bind(this);
+    this.handleOutputCopyClick = this.handleOutputCopyClick.bind(this);
 
     this.initVtranslit();
   }
@@ -81,6 +85,22 @@ class App extends Component {
     });
   }
 
+  handleInputCopyClick() {
+    const { input } = this.state;
+
+    if (input) {
+      copyToClipboard(input);
+    }
+  }
+
+  handleOutputCopyClick() {
+    const { output } = this.state;
+
+    if (output) {
+      copyToClipboard(output);
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -95,6 +115,7 @@ class App extends Component {
               defaultScheme={this.state.fromScheme}
               defaultTranslitMode={this.state.translitMode}
               handleTranslitModeChange={this.handleTranslitModeChange}
+              handleCopyClick={this.handleInputCopyClick}
             />
             <InputBox handleInputChange={this.handleInputChange} />
           </Wrapper>
@@ -102,6 +123,7 @@ class App extends Component {
             <ToolBar
               handleSchemeChange={this.handleToSchemeChange}
               defaultScheme={this.state.toScheme}
+              handleCopyClick={this.handleOutputCopyClick}
             />
             <OutputBox output={this.state.output} />
           </Wrapper>
