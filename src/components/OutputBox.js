@@ -1,18 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { vtranslit } from './../libs/vtranslit';
-
 import { Box } from './Box';
 
-export const OutputBox = ({ value, fromScheme, toScheme, translitMode }) => {
-  const vt = vtranslit.init(fromScheme, toScheme, { translitMode });
-  return <Box value={vt(value)} readOnly />;
-};
+export const OutputBox = ({ output }) => <Box value={output} readOnly />;
 
 OutputBox.propTypes = {
-  value: PropTypes.string.isRequired,
-  fromScheme: PropTypes.string.isRequired,
-  toScheme: PropTypes.string.isRequired,
-  translitMode: PropTypes.number.isRequired
+  output: PropTypes.string.isRequired
 };

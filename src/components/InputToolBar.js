@@ -40,6 +40,6 @@ export const InputToolBar = ({
 );
 
 InputToolBar.propTypes = {
-  defaultTranslitMode: PropTypes.number.isRequired,
+  defaultTranslitMode: PropTypes.string.isRequired,
   handleTranslitModeChange: PropTypes.func.isRequired
 };

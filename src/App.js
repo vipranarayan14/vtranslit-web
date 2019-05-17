@@ -8,44 +8,76 @@ import { Wrapper } from './components/Wrapper';
 
 import './App.css';
 
+import { vtranslit } from './libs/vtranslit';
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       input: '',
+      output: '',
       fromScheme: 'Itrn',
       toScheme: 'Deva',
-      translitMode: 0
+      translitMode: '0' //use srring so that 0 is not considered 'false' in `initVtranslit`
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFromSchemeChange = this.handleFromSchemeChange.bind(this);
     this.handleToSchemeChange = this.handleToSchemeChange.bind(this);
     this.handleTranslitModeChange = this.handleTranslitModeChange.bind(this);
+
+    this.initVtranslit();
+  }
+
+  initVtranslit(fromScheme, toScheme, translitMode) {
+    this.vt = vtranslit.init(
+      fromScheme || this.state.fromScheme,
+      toScheme || this.state.toScheme,
+      {
+        translitMode: Number(translitMode || this.state.translitMode)
+      }
+    );
   }
 
   handleInputChange(e) {
+    const input = e.target.value;
     this.setState({
-      input: e.target.value
+      input,
+      output: this.vt(input)
     });
   }
 
   handleFromSchemeChange(e) {
+    const fromScheme = e.target.value;
+
+    this.initVtranslit(fromScheme);
+
     this.setState({
-      fromScheme: e.target.value
+      fromScheme,
+      output: this.vt(this.state.input)
     });
   }
 
   handleToSchemeChange(e) {
+    const toScheme = e.target.value;
+
+    this.initVtranslit('', toScheme);
+
     this.setState({
-      toScheme: e.target.value
+      toScheme,
+      output: this.vt(this.state.input)
     });
   }
 
   handleTranslitModeChange(e) {
+    const translitMode = e.target.value;
+
+    this.initVtranslit('', '', translitMode);
+
     this.setState({
-      translitMode: e.target.value
+      translitMode,
+      output: this.vt(this.state.input)
     });
   }
 
@@ -71,12 +103,7 @@ class App extends Component {
               handleSchemeChange={this.handleToSchemeChange}
               defaultScheme={this.state.toScheme}
             />
-            <OutputBox
-              value={this.state.input}
-              fromScheme={this.state.fromScheme}
-              toScheme={this.state.toScheme}
-              translitMode={this.state.translitMode}
-            />
+            <OutputBox output={this.state.output} />
           </Wrapper>
         </main>
       </div>
