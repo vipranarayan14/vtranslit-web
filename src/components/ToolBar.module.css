@@ -6,7 +6,7 @@
   font-weight: bold;
   font-family: sans-serif;
   font-size: 12px;
-  display: block;
+  display: flex;
   background-color: #fff;
   border: 1px solid #ccc;
   outline: 0;
@@ -40,4 +40,7 @@
   background-color: #f4f4f4;
   border-width: 1.5px;
 }
+
+.ToolBar .Tool.pull_right {
+  margin-left: auto;
 }
