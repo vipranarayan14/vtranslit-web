@@ -5,12 +5,18 @@ import { OutputBox } from './components/OutputBox';
 import { InputToolBar } from './components/InputToolBar';
 import { ToolBar } from './components/ToolBar';
 import { Wrapper } from './components/Wrapper';
+import { Notifier } from './components/Notifier';
 
 import './App.css';
 
 import { vtranslit } from './libs/vtranslit';
 
 import { copyToClipboard } from './libs/copy-to-clipboard';
+
+let notifierTimeout;
+
+const getSelectedOption = selectEle =>
+  selectEle.options[selectEle.selectedIndex].text;
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +27,8 @@ class App extends Component {
       output: '',
       fromScheme: 'Itrn',
       toScheme: 'Deva',
-      translitMode: '0' //use srring so that 0 is not considered 'false' in `initVtranslit`
+      translitMode: '0', //use srring so that 0 is not considered 'false' in `initVtranslit`
+      message: ''
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -32,6 +39,17 @@ class App extends Component {
     this.handleOutputCopyClick = this.handleOutputCopyClick.bind(this);
 
     this.initVtranslit();
+  }
+
+  notify(message) {
+    this.setState({
+      message,
+      notifierShow: true
+    });
+
+    clearTimeout(notifierTimeout);
+
+    notifierTimeout = setTimeout(() => this.setState({ message: '' }), 5000);
   }
 
   initVtranslit(fromScheme, toScheme, translitMode) {
@@ -61,6 +79,8 @@ class App extends Component {
       fromScheme,
       output: this.vt(this.state.input)
     });
+
+    this.notify(`Input scheme changed to '${getSelectedOption(e.target)}'.`);
   }
 
   handleToSchemeChange(e) {
@@ -72,6 +92,8 @@ class App extends Component {
       toScheme,
       output: this.vt(this.state.input)
     });
+
+    this.notify(`Output scheme changed to '${getSelectedOption(e.target)}'.`);
   }
 
   handleTranslitModeChange(e) {
@@ -83,6 +105,8 @@ class App extends Component {
       translitMode,
       output: this.vt(this.state.input)
     });
+
+    this.notify(`Set '${getSelectedOption(e.target)}'.`);
   }
 
   handleInputCopyClick() {
@@ -90,6 +114,9 @@ class App extends Component {
 
     if (input) {
       copyToClipboard(input);
+      this.notify('Input copied to clipboard.');
+    } else {
+      this.notify('Nothing to copy.');
     }
   }
 
@@ -98,6 +125,10 @@ class App extends Component {
 
     if (output) {
       copyToClipboard(output);
+
+      this.notify('Output copied to clipboard.');
+    } else {
+      this.notify('Nothing to copy.');
     }
   }
 
@@ -109,6 +140,7 @@ class App extends Component {
         </header>
 
         <main>
+          <Notifier message={this.state.message} />
           <Wrapper>
             <InputToolBar
               handleSchemeChange={this.handleFromSchemeChange}
