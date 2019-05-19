@@ -1,18 +1,3 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-}
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background: #b993d6;
-  background: -webkit-linear-gradient(to left, #8ca6db, #b993d6);
-  background: linear-gradient(to left, #8ca6db, #b993d6);
-}
-
 .App {
   max-width: 600px;
   margin: 0 auto;
