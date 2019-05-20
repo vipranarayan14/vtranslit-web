@@ -11,7 +11,7 @@
     "ITRANS",
     "Indic scripts"
   ],
-  "homepage": "https://github.com/vipranarayan14/vtranslit-web#readme",
+  "homepage": ".",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vipranarayan14/vtranslit-web.git"
