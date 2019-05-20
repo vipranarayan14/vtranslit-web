@@ -3,17 +3,25 @@ import React, { Component } from 'react';
 import { InputBox } from './components/InputBox';
 import { OutputBox } from './components/OutputBox';
 import { InputToolBar } from './components/InputToolBar';
-import { ToolBar } from './components/ToolBar';
+import { OutputToolBar } from './components/OutputToolBar';
 import { Wrapper } from './components/Wrapper';
 import { Notifier } from './components/Notifier';
 
 import './App.css';
 
-import { vtranslit } from './libs/vtranslit';
+import { availableSchemes, vtranslit } from './libs/vtranslit';
 
 import { copyToClipboard } from './libs/copy-to-clipboard';
 
 let notifierTimeout;
+
+const schemeItrn = availableSchemes.filter(scheme => scheme.code === 'Itrn');
+const schemesOtherthanItrn = availableSchemes.filter(
+  scheme => scheme.code !== 'Itrn'
+);
+
+const defaultFromScheme = 'Itrn';
+const defaultToScheme = 'Deva';
 
 const getSelectedOption = selectEle =>
   selectEle.options[selectEle.selectedIndex].text;
@@ -25,8 +33,10 @@ class App extends Component {
     this.state = {
       input: '',
       output: '',
-      fromScheme: 'Itrn',
-      toScheme: 'Deva',
+      availableFromSchemes: availableSchemes,
+      availableToSchemes: schemesOtherthanItrn,
+      fromScheme: defaultFromScheme,
+      toScheme: defaultToScheme,
       translitMode: '0', //use srring so that 0 is not considered 'false' in `initVtranslit`
       message: ''
     };
@@ -35,6 +45,7 @@ class App extends Component {
     this.handleFromSchemeChange = this.handleFromSchemeChange.bind(this);
     this.handleToSchemeChange = this.handleToSchemeChange.bind(this);
     this.handleTranslitModeChange = this.handleTranslitModeChange.bind(this);
+    this.handleMultiSchemeToggle = this.handleMultiSchemeToggle.bind(this);
     this.handleInputCopyClick = this.handleInputCopyClick.bind(this);
     this.handleOutputCopyClick = this.handleOutputCopyClick.bind(this);
 
@@ -43,8 +54,7 @@ class App extends Component {
 
   notify(message) {
     this.setState({
-      message,
-      notifierShow: true
+      message
     });
 
     clearTimeout(notifierTimeout);
@@ -73,9 +83,19 @@ class App extends Component {
   handleFromSchemeChange(e) {
     const fromScheme = e.target.value;
 
-    this.initVtranslit(fromScheme);
+    let toScheme = defaultToScheme;
+    let availableToSchemes = schemesOtherthanItrn;
+
+    if (fromScheme !== defaultFromScheme) {
+      toScheme = 'Itrn';
+      availableToSchemes = schemeItrn;
+    }
+
+    this.initVtranslit(fromScheme, toScheme);
 
     this.setState({
+      toScheme,
+      availableToSchemes,
       fromScheme,
       output: this.vt(this.state.input)
     });
@@ -103,6 +123,27 @@ class App extends Component {
 
     this.setState({
       translitMode,
+      output: this.vt(this.state.input)
+    });
+
+    this.notify(`Set '${getSelectedOption(e.target)}'.`);
+  }
+
+  handleMultiSchemeToggle(e) {
+    const fromScheme = defaultFromScheme;
+
+    let toScheme = defaultToScheme;
+
+    if (e.target.value === 'on') {
+      toScheme = 'Multi';
+    }
+
+    this.initVtranslit(fromScheme, toScheme);
+
+    this.setState({
+      availableToSchemes: schemesOtherthanItrn,
+      fromScheme,
+      toScheme,
       output: this.vt(this.state.input)
     });
 
@@ -144,18 +185,23 @@ class App extends Component {
           <Wrapper>
             <InputToolBar
               handleSchemeChange={this.handleFromSchemeChange}
-              defaultScheme={this.state.fromScheme}
+              fromScheme={this.state.fromScheme}
+              toScheme={this.state.toScheme}
               defaultTranslitMode={this.state.translitMode}
               handleTranslitModeChange={this.handleTranslitModeChange}
               handleCopyClick={this.handleInputCopyClick}
+              availableFromSchemes={this.state.availableFromSchemes}
             />
             <InputBox handleInputChange={this.handleInputChange} />
           </Wrapper>
           <Wrapper>
-            <ToolBar
+            <OutputToolBar
               handleSchemeChange={this.handleToSchemeChange}
-              defaultScheme={this.state.toScheme}
+              fromScheme={this.state.fromScheme}
+              toScheme={this.state.toScheme}
+              handleMultiSchemeToggle={this.handleMultiSchemeToggle}
               handleCopyClick={this.handleOutputCopyClick}
+              availableToSchemes={this.state.availableToSchemes}
             />
             <OutputBox output={this.state.output} />
           </Wrapper>
