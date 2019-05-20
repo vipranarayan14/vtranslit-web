@@ -7,24 +7,28 @@ import { OutputToolBar } from './components/OutputToolBar';
 import { Wrapper } from './components/Wrapper';
 import { Notifier } from './components/Notifier';
 
+import { handleInputChange } from './events/handle-input-change';
+import { handleFromSchemeChange } from './events/handle-from-scheme-change';
+import { handleToSchemeChange } from './events/handle-to-scheme-change';
+import { handleTranslitModeChange } from './events/handle-translit-mode-change';
+import { handleMultiSchemeToggle } from './events/handle-multi-scheme-toggle';
+import {
+  handleInputCopyClick,
+  handleOutputCopyClick
+} from './events/handle-copy-click';
+
 import './App.css';
 
-import { availableSchemes, vtranslit } from './libs/vtranslit';
+import { vtranslit } from './libs/vtranslit';
 
-import { copyToClipboard } from './libs/copy-to-clipboard';
+import {
+  allSchemes,
+  schemesOtherthanItrn,
+  defaultFromScheme,
+  defaultToScheme
+} from './modules/schemes';
 
 let notifierTimeout;
-
-const schemeItrn = availableSchemes.filter(scheme => scheme.code === 'Itrn');
-const schemesOtherthanItrn = availableSchemes.filter(
-  scheme => scheme.code !== 'Itrn'
-);
-
-const defaultFromScheme = 'Itrn';
-const defaultToScheme = 'Deva';
-
-const getSelectedOption = selectEle =>
-  selectEle.options[selectEle.selectedIndex].text;
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +37,7 @@ class App extends Component {
     this.state = {
       input: '',
       output: '',
-      availableFromSchemes: availableSchemes,
+      availableFromSchemes: allSchemes,
       availableToSchemes: schemesOtherthanItrn,
       fromScheme: defaultFromScheme,
       toScheme: defaultToScheme,
@@ -41,13 +45,13 @@ class App extends Component {
       message: ''
     };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFromSchemeChange = this.handleFromSchemeChange.bind(this);
-    this.handleToSchemeChange = this.handleToSchemeChange.bind(this);
-    this.handleTranslitModeChange = this.handleTranslitModeChange.bind(this);
-    this.handleMultiSchemeToggle = this.handleMultiSchemeToggle.bind(this);
-    this.handleInputCopyClick = this.handleInputCopyClick.bind(this);
-    this.handleOutputCopyClick = this.handleOutputCopyClick.bind(this);
+    this.handleInputChange = handleInputChange.bind(this);
+    this.handleFromSchemeChange = handleFromSchemeChange.bind(this);
+    this.handleToSchemeChange = handleToSchemeChange.bind(this);
+    this.handleTranslitModeChange = handleTranslitModeChange.bind(this);
+    this.handleMultiSchemeToggle = handleMultiSchemeToggle.bind(this);
+    this.handleInputCopyClick = handleInputCopyClick.bind(this);
+    this.handleOutputCopyClick = handleOutputCopyClick.bind(this);
 
     this.initVtranslit();
   }
@@ -70,107 +74,6 @@ class App extends Component {
         translitMode: Number(translitMode || this.state.translitMode)
       }
     );
-  }
-
-  handleInputChange(e) {
-    const input = e.target.value;
-    this.setState({
-      input,
-      output: this.vt(input)
-    });
-  }
-
-  handleFromSchemeChange(e) {
-    const fromScheme = e.target.value;
-
-    let toScheme = defaultToScheme;
-    let availableToSchemes = schemesOtherthanItrn;
-
-    if (fromScheme !== defaultFromScheme) {
-      toScheme = 'Itrn';
-      availableToSchemes = schemeItrn;
-    }
-
-    this.initVtranslit(fromScheme, toScheme);
-
-    this.setState({
-      toScheme,
-      availableToSchemes,
-      fromScheme,
-      output: this.vt(this.state.input)
-    });
-
-    this.notify(`Input scheme changed to '${getSelectedOption(e.target)}'.`);
-  }
-
-  handleToSchemeChange(e) {
-    const toScheme = e.target.value;
-
-    this.initVtranslit('', toScheme);
-
-    this.setState({
-      toScheme,
-      output: this.vt(this.state.input)
-    });
-
-    this.notify(`Output scheme changed to '${getSelectedOption(e.target)}'.`);
-  }
-
-  handleTranslitModeChange(e) {
-    const translitMode = e.target.value;
-
-    this.initVtranslit('', '', translitMode);
-
-    this.setState({
-      translitMode,
-      output: this.vt(this.state.input)
-    });
-
-    this.notify(`Set '${getSelectedOption(e.target)}'.`);
-  }
-
-  handleMultiSchemeToggle(e) {
-    const fromScheme = defaultFromScheme;
-
-    let toScheme = defaultToScheme;
-
-    if (e.target.value === 'on') {
-      toScheme = 'Multi';
-    }
-
-    this.initVtranslit(fromScheme, toScheme);
-
-    this.setState({
-      availableToSchemes: schemesOtherthanItrn,
-      fromScheme,
-      toScheme,
-      output: this.vt(this.state.input)
-    });
-
-    this.notify(`Set '${getSelectedOption(e.target)}'.`);
-  }
-
-  handleInputCopyClick() {
-    const { input } = this.state;
-
-    if (input) {
-      copyToClipboard(input);
-      this.notify('Input copied to clipboard.');
-    } else {
-      this.notify('Nothing to copy.');
-    }
-  }
-
-  handleOutputCopyClick() {
-    const { output } = this.state;
-
-    if (output) {
-      copyToClipboard(output);
-
-      this.notify('Output copied to clipboard.');
-    } else {
-      this.notify('Nothing to copy.');
-    }
   }
 
   render() {
