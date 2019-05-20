@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "eslint './**/*.js'",
+    "eslint": "eslint './src/**/*.js'",
     "precommit": "npm run eslint",
     "version": "git add -A",
     "postversion": "git push && git push --tags"
