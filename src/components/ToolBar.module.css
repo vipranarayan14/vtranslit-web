@@ -41,6 +41,12 @@
   border-width: 1.5px;
 }
 
+.ToolBar .Tool:disabled,
+.ToolBar .Tool:disabled:hover {
+  background-color: #b9b9b9;
+  cursor: not-allowed;
+}
+
 .ToolBar .Tool.pull_right {
   margin-left: auto;
 }
