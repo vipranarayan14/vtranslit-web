@@ -1,6 +1,6 @@
 {
   "name": "vtranslit-web",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
   "description": "A web app for vtranslit.",
   "author": "Prasanna Venkatesh T S <vipranarayan14@gmail.com>",
