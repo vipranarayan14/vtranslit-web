@@ -1,0 +1,29 @@
+.TransliterationMap {
+  font-family: 'SakalBharati', 'Sampradaya', sans-serif;
+  line-height: 1.5;
+  margin: 25px auto;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  color: #636366;
+  text-align: center;
+}
+
+.TransliterationMap .SubMap {
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.TransliterationMap .SubMap .MapItem {
+  width: 60px;
+  text-align: center;
+  border-left: 2px solid #636363;
+  border-right: 2px solid #636363;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  padding: 5px;
+  background-color: #fff;
+}
