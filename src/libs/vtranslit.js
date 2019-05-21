@@ -6,13 +6,15 @@ import { vTranslitSchemeKnda } from 'vtranslit-scheme-knda';
 import { vTranslitSchemeTaml } from 'vtranslit-scheme-taml';
 import { vTranslitSchemeTelu } from 'vtranslit-scheme-telu';
 
-export const vtranslit = vTranslit([
+export const vTranslitSchemes = [
   vTranslitSchemeDeva,
   vTranslitSchemeGran,
   vTranslitSchemeItrn,
   vTranslitSchemeKnda,
   vTranslitSchemeTaml,
   vTranslitSchemeTelu
-]);
+];
+
+export const vtranslit = vTranslit(vTranslitSchemes);
 
 export const availableSchemes = vtranslit.list();
