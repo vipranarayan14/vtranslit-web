@@ -37,7 +37,6 @@ class App extends Component {
     this.state = {
       input: '',
       output: '',
-      availableFromSchemes: allSchemes,
       availableToSchemes: schemesOtherthanItrn,
       fromScheme: defaultFromScheme,
       toScheme: defaultToScheme,
@@ -93,7 +92,7 @@ class App extends Component {
               defaultTranslitMode={this.state.translitMode}
               handleTranslitModeChange={this.handleTranslitModeChange}
               handleCopyClick={this.handleInputCopyClick}
-              availableFromSchemes={this.state.availableFromSchemes}
+              availableFromSchemes={allSchemes}
             />
             <InputBox handleInputChange={this.handleInputChange} />
           </Wrapper>
