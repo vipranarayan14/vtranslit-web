@@ -15,12 +15,13 @@ export const Info = props => (
         <TransliterationMap {...props} />
       </div>
       <div label="About">
-        <h2>vTranslit Web</h2>
+        <h2>vTranslit-Web</h2>
         <p>
-          A webapp for vTranslit - transliterator between ITRANS and any Indic
-          Script.
+          vTranslit-Web is a webapp for{' '}
+          <a href="https://github.com/vipranarayan14/vtranslit">vTranslit</a> --
+          transliterator between ITRANS and any Indic Script.
         </p>
-        <p>Currently supports transliteration from ITRANS (Itrn) to:</p>
+        <p>It Currently supports transliteration from ITRANS (Itrn) to:</p>
         <ul>
           <li>Devanagari (Deva)</li>
           <li>Kannada (Knda)</li>
@@ -32,9 +33,16 @@ export const Info = props => (
           ITRANS.
         </p>
         <p>
-          The core vTranslit is on{' '}
+          The project is on{' '}
           <a href="https://github.com/vipranarayan14/vtranslit">GitHub</a>.
         </p>
+        <h3>License</h3>
+        <p>
+          <a href="https://github.com/vipranarayan14/vtranslit-web/blob/master/LICENSE">
+            MIT License
+          </a>
+        </p>
+        <p>Copyright (c) 2018 Prasanna Venkatesh T S</p>
       </div>
     </Tabs>
   </div>
