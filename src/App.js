@@ -6,7 +6,7 @@ import { InputToolBar } from './components/InputToolBar';
 import { OutputToolBar } from './components/OutputToolBar';
 import { Wrapper } from './components/Wrapper';
 import { Notifier } from './components/Notifier';
-import { TransliterationMap } from './components/TransliterationMap';
+import { Info } from './components/Info';
 
 import { handleInputChange } from './events/handle-input-change';
 import { handleFromSchemeChange } from './events/handle-from-scheme-change';
@@ -108,7 +108,7 @@ class App extends Component {
             />
             <OutputBox output={this.state.output} />
           </Wrapper>
-          <TransliterationMap
+          <Info
             fromScheme={this.state.fromScheme}
             toScheme={this.state.toScheme}
           />
