@@ -2,7 +2,8 @@
 
 A webapp for vTranslit - transliterator between ITRANS and any Indic Script.
 
-Currently supports transliteration from ITRANS (Itrn) to: 
+Currently supports transliteration from ITRANS (Itrn) to:
+
 - Devanagari (Deva)
 - Kannada (Knda)
 - Tamil (Taml)
