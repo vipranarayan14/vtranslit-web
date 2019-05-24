@@ -36,7 +36,7 @@
     "react-scripts": "3.0.0",
     "vtranslit": "4.4.1",
     "vtranslit-scheme-deva": "0.4.0",
-    "vtranslit-scheme-gran": "0.2.0",
+    "vtranslit-scheme-gran": "0.3.1",
     "vtranslit-scheme-itrn": "0.3.0",
     "vtranslit-scheme-knda": "0.3.0",
     "vtranslit-scheme-taml": "0.3.0",
