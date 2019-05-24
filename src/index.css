@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'SakalBharati';
   font-style: 'normal';
-  src: url('/fonts/SakalBharati.ttf') format('truetype');
+  src: url('./fonts/SakalBharati.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Sampradaya';
   font-style: 'normal';
-  src: url('/fonts/Sampradaya.ttf') format('truetype');
+  src: url('./fonts/Sampradaya.ttf') format('truetype');
 }
 
 * {
