@@ -4,6 +4,7 @@ import { TransliterationMap } from './TransliterationMap';
 import { Tabs } from './Tabs';
 
 import styles from './Info.module.css';
+import vtranslitWebUiAnnotated from "../images/vtranslit-web-ui-annotated.jpg";
 
 export const Info = props => (
   <div className={styles.Info}>
@@ -22,7 +23,7 @@ export const Info = props => (
         </p>
         <h3>The Basics</h3>
         <img
-          src="images/vtranslit-web-ui-annotated.jpg"
+          src={vtranslitWebUiAnnotated}
           alt="vtranslit-web-ui-annotated"
           width="100%"
         />
