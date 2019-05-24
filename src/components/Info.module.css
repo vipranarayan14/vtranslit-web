@@ -28,6 +28,7 @@
 }
 
 .Info .Tabs .TabContent {
+  line-height: 1.5;
   padding: 10px;
   border-radius: 0 0 5px 5px;
   background-color: #fff;
