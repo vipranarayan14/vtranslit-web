@@ -161,6 +161,17 @@ export const Info = props => (
           <li>Kannada (Knda)</li>
           <li>Tamil (Taml)</li>
           <li>Telugu (Telu)</li>
+          <li>Grantha (Gran)</li>
+          <li>
+            IAST (Iast)
+            <ul>
+              <li>IAST to ITRANS: Full support.</li>
+              <li>
+                ITRANS to IAST: Partial support. Currently there is no way use
+                capital forms of the IAST characters.
+              </li>
+        </ul>
+          </li>
         </ul>
         <p>
           It also supports transliteration from the above mentioned schemes to
