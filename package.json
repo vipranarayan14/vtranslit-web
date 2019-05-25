@@ -37,6 +37,7 @@
     "vtranslit": "4.4.1",
     "vtranslit-scheme-deva": "0.4.0",
     "vtranslit-scheme-gran": "0.3.1",
+    "vtranslit-scheme-iast": "0.4.2",
     "vtranslit-scheme-itrn": "0.3.0",
     "vtranslit-scheme-knda": "0.3.0",
     "vtranslit-scheme-taml": "0.3.0",
