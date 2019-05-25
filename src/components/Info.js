@@ -4,7 +4,9 @@ import { TransliterationMap } from './TransliterationMap';
 import { Tabs } from './Tabs';
 
 import styles from './Info.module.css';
-import vtranslitWebUiAnnotated from "../images/vtranslit-web-ui-annotated.jpg";
+import vtranslitWebUiAnnotated from '../images/vtranslit-web-ui-annotated.jpg';
+import sampradayaFont from '../fonts/Sampradaya.ttf';
+import sakalBharatiFont from '../fonts/SakalBharati.ttf';
 
 export const Info = props => (
   <div className={styles.Info}>
@@ -170,7 +172,7 @@ export const Info = props => (
                 ITRANS to IAST: Partial support. Currently there is no way use
                 capital forms of the IAST characters.
               </li>
-        </ul>
+            </ul>
           </li>
         </ul>
         <p>
@@ -180,6 +182,38 @@ export const Info = props => (
         <p>
           The core vTranslit is on{' '}
           <a href="https://github.com/vipranarayan14/vtranslit">GitHub</a>.
+        </p>
+        <h3>Fonts</h3>
+        <p>
+          vTranslit-Web uses the following Unicode fonts to render the text in
+          input, output and the transliteration map.
+        </p>
+        <ul>
+          <li>
+            Sampradaya for Grantha{' '}
+            <a href="https://bitbucket.org/OorNaattaan/sampradaya/src/default/">
+              Developer's Site
+            </a>
+            {' | '}
+            <a href={sampradayaFont} download="Sampradaya.ttf">
+              Download
+            </a>
+          </li>
+          <li>
+            SakalBharati for the other scripts{' '}
+            <a href="http://tdil-dc.in/index.php?option=com_download&task=showresourceDetails&toolid=805&lang=en">
+              Developer's Site
+            </a>
+            {' | '}
+            <a href={sakalBharatiFont} download="SakalBharati.ttf">
+              Download
+            </a>
+          </li>
+        </ul>
+        <p>
+          <strong>Note:</strong> The above fonts or any other fonts that can
+          render the text in the output is needed to be installed in your system
+          if you want to copy the output to elsewhere.
         </p>
         <h3>External Links</h3>
         <ul>
