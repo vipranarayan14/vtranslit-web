@@ -33,7 +33,7 @@
   "dependencies": {
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-scripts": "3.0.0",
+    "react-scripts": "5.0.1",
     "vtranslit": "4.4.1",
     "vtranslit-scheme-deva": "0.4.0",
     "vtranslit-scheme-gran": "0.3.1",
